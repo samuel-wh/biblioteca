@@ -16,12 +16,12 @@ def editor_create(request):
         return redirect('editor_listar_f')
     else:
         form = EditorForm()
-    return render(request, 'editor/view_functions/editor_form.html', {'form':form})
+    return render(request, 'editor/view_functions/editor_form.html', {'form': form})
 
 
 def editor_list(request):
     editor = Editor.objects.all().order_by('id')
-    contexto = {'editores':editor}
+    contexto = {'editores': editor}
     return render(request, 'editor/view_functions/editor_list.html', contexto)
 
 
@@ -34,7 +34,7 @@ def editor_update(request, id_editor):
         if form.is_valid():
             form.save()
         return redirect('editor_listar_f')
-    return render(request, 'editor/view_functions/editor_form.html', {'form':form})
+    return render(request, 'editor/view_functions/editor_form.html', {'form': form})
 
 
 def editor_delete(request, id_editor):
@@ -42,4 +42,4 @@ def editor_delete(request, id_editor):
     if request.method == 'POST':
         editor.delete()
         return redirect('editor_listar_f')
-    return render(request, 'editor/view_functions/editor_delete.html', {'editor':editor})
+    return render(request, 'editor/view_functions/editor_delete.html', {'editor': editor})

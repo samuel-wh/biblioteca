@@ -21,13 +21,13 @@ def autor_create(request):
         return redirect('autor_listar_f')
     else:
         form = AutorForm()
-    return render(request, 'libro/view_functions/autor_form.html', {'form':form})
+    return render(request, 'libro/view_functions/autor_form.html', {'form': form})
 
 
 def autor_list(request):
     autor = Autor.objects.all().order_by('id')
-    contexto = {'autores':autor}
-    return render(request,'libro/view_functions/autor_listar.html', contexto)
+    contexto = {'autores': autor}
+    return render(request, 'libro/view_functions/autor_listar.html', contexto)
 
 
 def autor_update(request, id_autor):
@@ -39,7 +39,7 @@ def autor_update(request, id_autor):
         if form.is_valid():
             form.save()
         return redirect('autor_listar_f')
-    return render(request, 'libro/view_functions/autor_form.html', {'form':form})
+    return render(request, 'libro/view_functions/autor_form.html', {'form': form})
 
 
 def autor_delete(request, id_autor):
@@ -47,7 +47,7 @@ def autor_delete(request, id_autor):
     if request.method == 'POST':
         autor.delete()
         return redirect('autor_listar_f')
-    return render(request, 'libro/view_functions/autor_delete.html',{'autor':autor})
+    return render(request, 'libro/view_functions/autor_delete.html', {'autor': autor})
 
 
 # Libros fv
@@ -61,27 +61,30 @@ def libro_create(request):
         return redirect('libro_listar_f')
     else:
         form = LibroForm()
-    return render(request, 'libro/view_functions/libro_form.html', {'form':form})
+    return render(request, 'libro/view_functions/libro_form.html', {'form': form})
+
 
 def libro_list(request):
     libro = Libro.objects.all().order_by('id')
-    contexto = {'libros':libro}
-    return render(request,'libro/view_functions/libro_listar.html', contexto)
+    contexto = {'libros': libro}
+    return render(request, 'libro/view_functions/libro_listar.html', contexto)
+
 
 def libro_update(request, id_libro):
     libro = Libro.objects.get(id=id_libro)
     if request.method == 'GET':
         form = LibroForm(instance=libro)
     else:
-        form = LibroForm(request.POST,request.FILES, instance=libro)
+        form = LibroForm(request.POST, request.FILES, instance=libro)
         if form.is_valid():
             form.save()
         return redirect('libro_listar_f')
-    return render(request, 'libro/view_functions/libro_form.html', {'form':form})
+    return render(request, 'libro/view_functions/libro_form.html', {'form': form})
+
 
 def libro_delete(request, id_libro):
     libro = Libro.objects.get(id=id_libro)
     if request.method == 'POST':
         libro.delete()
         return redirect('libro_listar_f')
-    return render(request, 'libro/view_functions/libro_delete.html',{'libro':libro})
+    return render(request, 'libro/view_functions/libro_delete.html', {'libro': libro})

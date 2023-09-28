@@ -41,16 +41,19 @@ class LibroCreate(CreateView):
     template_name = 'libro/view_class/libro_form.html'
     success_url = reverse_lazy('libro_listar_c')
 
+
 class LibroList(ListView):
     model = Libro
     form_class = LibroForm
     template_name = 'libro/view_class/libro_listar.html'
+
 
 class LibroEdit(UpdateView):
     model = Libro
     form_class = LibroForm
     template_name = 'libro/view_class/libro_form.html'
     success_url = reverse_lazy('libro_listar_c')
+
 
 class LibroDelete(DeleteView):
     model = Libro

@@ -10,5 +10,6 @@ class Editor(models.Model):
     estado = models.CharField(max_length=30)
     pais = models.CharField(max_length=50)
     website = models.URLField()
+
     def __unicode__(self):
         return '{}'.format(self.nombre)
