@@ -1,6 +1,6 @@
 from django import forms
 
-from models import Editor
+from biblioteca.apps.editor.models import Editor
 
 
 class EditorForm(forms.ModelForm):

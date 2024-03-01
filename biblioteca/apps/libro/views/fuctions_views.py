@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 
-from models import Autor, Libro
-from forms import AutorForm, LibroForm
+from biblioteca.apps.libro.forms import AutorForm, LibroForm
+from biblioteca.apps.libro.models import Autor, Libro
+
 
 # Create your views here.
 

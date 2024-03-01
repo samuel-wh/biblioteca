@@ -57,7 +57,7 @@ ROOT_URLCONF = 'biblioteca.core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'biblioteca/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'biblioteca.wsgi.application'
+WSGI_APPLICATION = 'biblioteca.core.wsgi.application'
 
 
 # Database

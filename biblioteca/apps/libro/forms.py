@@ -1,10 +1,16 @@
 from django import forms
 
-from models import Libro, Autor
+from biblioteca.apps.libro.models import Autor, Libro
+
 
 
 class LibroForm(forms.ModelForm):
-    class Meta():
+    autores = forms.ModelMultipleChoiceField(
+        queryset=Autor.objects.all(),  # Reemplaza 'Autor' con el modelo real de tus autores
+        widget=forms.CheckboxSelectMultiple(attrs={'class': 'form-check-input border-info'}),
+    )
+
+    class Meta:
         model = Libro
         fields = [
             'portada',
@@ -25,7 +31,6 @@ class LibroForm(forms.ModelForm):
         }
         widgets = {
             'titulo': forms.TextInput(attrs={'class': 'form-control border-info'}),
-            'autores': forms.CheckboxSelectMultiple(attrs={'class': 'form-check-input border-info'}),
             'editor': forms.Select(attrs={'class': 'form-select border-info'}),
             'fecha_publicacion': forms.TextInput(attrs={'class': 'form-control border-info'}),
 

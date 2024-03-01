@@ -13,3 +13,6 @@ class Editor(models.Model):
 
     def __unicode__(self):
         return '{}'.format(self.nombre)
+    
+    def __str__(self):
+        return '{}'.format(self.nombre)

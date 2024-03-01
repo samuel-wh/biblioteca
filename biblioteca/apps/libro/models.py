@@ -15,6 +15,9 @@ class Autor(models.Model):
 
     def __unicode__(self):
         return '{}'.format(self.nombre)
+    
+    def __str__(self):
+        return '{} {}'.format(self.nombre, self.apellido)
 
 
 class Libro(models.Model):
